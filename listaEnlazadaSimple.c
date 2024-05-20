@@ -20,7 +20,7 @@ int crearVacia(ListaEnlazadaRef raiz){
     return 0; // Devolver 0 para indicar éxito
 }
 int estaVacia(ListaEnlazada raiz){
-	if (raiz == NULL) {
+	if (*raiz == NULL) {
         return 1; // Devolver 1 si la lista está vacía
     }
 
@@ -246,9 +246,10 @@ int eliminarNodoPosicionIndice(ListaEnlazadaRef raiz, int indice){
 	tipoNodoRef anterior = NULL;
 	int i = 0;
 
-	while (aux != NULL && i++ < indice) {
+	while (aux != NULL && i < indice) {
 		anterior = aux;
 		aux = aux->sig;
+		i++;
 	}
 
 	if (i != indice) {
